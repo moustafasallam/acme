@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @candidate.name %>
+</p>
+
+<p>
+  <strong>email:</strong>
+  <%= @candidate.email %>
+</p>
+
+<p>
+  <strong>Cover Letter:</strong>
+  <%= @candidate.cover_letter %>
+</p>
+
+<%= link_to 'Edit', edit_job_posting_candidate_path(job_posting_id: @candidate.job_posting_id, id: @candidate.id) %> |
+<%= link_to 'Back', job_posting_candidates_path(job_posting_id: @candidate.job_posting_id) %>

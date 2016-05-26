@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Job Postings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <td colspan="4"><%= will_paginate @job_postings, renderer: FoundationPagination::Rails %></td>
+      <td colspan="3"><%= link_to 'New Job Posting', new_job_posting_path %></td>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <th>description</th>
+      <th>closing date</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @job_postings.each do |job_posting| %>
+      <tr>
+        <td><%= job_posting.title %></td>
+        <td><%= job_posting.description %></td>
+        <td><%= job_posting.closing_date %></td>
+        <td><%= link_to 'Show', job_posting %></td>
+        <td><%= link_to 'Edit', edit_job_posting_path(job_posting) %></td>
+        <td><%= link_to 'Destroy', job_posting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Candidates', job_posting_candidates_path(job_posting_id: job_posting.id)  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4"><%= will_paginate @job_postings, renderer: FoundationPagination::Rails %></td>
+      <td colspan="3"><%= link_to 'New Job Posting', new_job_posting_path %></td>
+    </tr>
+  </tfoot>
+</table>

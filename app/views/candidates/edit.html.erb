@@ -1,0 +1,6 @@
+<h1>Editing Candidate</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', job_posting_candidate_path(job_posting_id: @candidate.job_posting_id, id: @candidate.id) %> |
+<%= link_to 'Back', job_posting_candidates_path(job_posting_id: @job_posting.id) %>
